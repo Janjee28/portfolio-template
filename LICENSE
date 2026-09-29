@@ -12,6 +12,10 @@ This additional permission covers your own portfolio only. It does not let you s
 
 Versions up to and including commit d3c05da (tag `v1.0.0-mit`) were released under the MIT License. Copies of those versions stay under the MIT License. This license applies to every later version.
 
+## Third-Party Code
+
+The simplex noise in `src/components/HeroCanvasV2.tsx` is Copyright (c) 2011 Ashima Arts / Ian McEwan and stays under the MIT License (https://github.com/ashima/webgl-noise).
+
 ---
 
 # PolyForm Noncommercial License 1.0.0
