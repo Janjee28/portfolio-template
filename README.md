@@ -71,4 +71,8 @@ To regenerate the placeholder pages: `node scripts/make-placeholder-sites.mjs`.
 
 ## License
 
-MIT for the code. See [LICENSE](LICENSE).
+[PolyForm Noncommercial 1.0.0](LICENSE), plus one extra permission: you can use it for **your own** portfolio, even if that portfolio promotes your paid services.
+
+What it does not allow without a commercial license: selling or reselling this template, or building portfolio sites for other people for payment. For a commercial license, email brewedops@gmail.com.
+
+Versions up to tag `v1.0.0-mit` (commit d3c05da) were MIT and stay MIT. Everything after that is under the license above.
