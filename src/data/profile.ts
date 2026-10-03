@@ -50,9 +50,9 @@ export const profile: Profile = {
   firstName: 'Merlin',
   handle: '@pipelinelab',
   role: 'GHL Specialist & Social Media Manager',
-  avatarSrc: '/avatar.svg',
+  avatarSrc: '/avatar.png',
   verifiedLabel: 'Verified profile',
-  email: 'your-email@example.com',
+  email: 'merlin.talento16@gmail.com',
   location: 'Philippines (GMT+8)',
   // Pick any icon from https://phosphoricons.com and import it above.
   stats: [
@@ -65,7 +65,7 @@ export const profile: Profile = {
   displayName: { line1: 'Content, AI and systems.', line2: 'Built to grow.' },
   hero: {
     body: 'I help businesses grow with social media, AI video and GoHighLevel automation.',
-    portraitSrc: '/avatar.svg',
+    portraitSrc: '/avatar.png',
     portraitAlt: 'Portrait of Merlin Aguila',
   },
   socials: [
