@@ -1,20 +1,20 @@
 import { useState, type FormEvent } from 'react'
-import { PaperPlaneTilt, CheckCircle, WarningCircle, EnvelopeSimple, ArrowUpRight, CaretDown } from '@/components/slab'
-import { FAQS } from '@/data/faqs'
+import { PaperPlaneTilt, CheckCircle, WarningCircle, ArrowUpRight } from '@/components/slab'
 import { profile } from '@/data/profile'
 import { readLead, submitLead, SubmitError, MAX_NAME, MAX_EMAIL, MAX_MESSAGE, type SubmitResult } from '@/lib/contact'
 
 /**
  * ContactGrid - the Contact view as a fixed viewport.
  *
- * One glass sheet, two columns: the questions people ask before they write
- * on the left, on a dark plate (one open at a time, the list scrolls), and
- * the form itself on the right. Sized to the panel, so
+ * One glass sheet, two columns: a short intro and social links on the left,
+ * on a dark plate, and the form itself on the right. Sized to the panel, so
  * nothing here scrolls; the message box takes whatever height is left.
  *
  * Submission goes through lib/contact.ts, which is the one place a form
  * backend gets wired. Until it is, the same call opens the visitor's mail
  * client with the message laid out, and the success copy says so.
+ *
+ * The email address is not shown on this page; people write through the form.
  */
 
 type Status = { kind: 'idle' } | { kind: 'sending' } | { kind: 'error'; note: string } | { kind: 'sent'; via: SubmitResult['via'] }
@@ -31,8 +31,6 @@ export default function ContactGrid() {
   // Bumped on every failed submit so the shake replays even if the same
   // error is already showing.
   const [shake, setShake] = useState(0)
-  // One question open at a time so the plate never grows past the form.
-  const [openFaq, setOpenFaq] = useState<number | null>(0)
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -47,7 +45,7 @@ export default function ContactGrid() {
       const [result] = await Promise.all([submitLead(lead), wait(FLIGHT_MS)])
       setStatus({ kind: 'sent', via: result.via })
     } catch (err) {
-      const note = err instanceof SubmitError ? err.message : 'That did not go through. Email me directly instead.'
+      const note = err instanceof SubmitError ? err.message : 'That did not go through. Please try again in a moment.'
       setStatus({ kind: 'error', note })
       setShake((n) => n + 1)
     }
@@ -58,56 +56,28 @@ export default function ContactGrid() {
   return (
     <section className="pgrid cgrid" aria-labelledby="contact-title">
       <header className="pgrid__head">
-        <span className="pgrid__eyebrow">FAQs / Contact</span>
+        <span className="pgrid__eyebrow">Contact</span>
         <h1 className="pgrid__title" id="contact-title">
-          Your contact headline goes here.
+          Let's build better systems together.
         </h1>
         <p className="pgrid__lede">
-          PLACEHOLDER - tell me what to put here: one or two lines inviting people to write and saying what they get back.
+          Tell me about your business and what you would like to improve. I will reply to you by email.
         </p>
       </header>
 
       <div className="home__glass cgrid__glass">
-        {/* Left: the dark plate. What happens after you press send. */}
+        {/* Left: the dark plate. A short intro and socials. */}
         <aside className="cgrid__aside" aria-labelledby="contact-faq">
           <div className="cgrid__aside-head">
-            <span className="cgrid__eyebrow">FAQs</span>
+            <span className="cgrid__eyebrow">Get in touch</span>
             <h2 className="cgrid__aside-title" id="contact-faq">
-              Quick answers.
+              Let's talk.
               <br />
-              <span>Still have one? Write below.</span>
+              <span>Write below and I will reply by email.</span>
             </h2>
           </div>
 
-          <ul className="cgrid__faqs" role="list">
-            {FAQS.map((f, i) => {
-              const isOpen = openFaq === i
-              return (
-                <li key={f.q} className={`cgrid__faq${isOpen ? ' is-open' : ''}`}>
-                  <button
-                    type="button"
-                    className="cgrid__faq-q"
-                    onClick={() => setOpenFaq(isOpen ? null : i)}
-                    aria-expanded={isOpen}
-                    aria-controls={`cfaq-${i}`}
-                  >
-                    <span className="cgrid__step-index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-                    <span className="cgrid__faq-text">{f.q}</span>
-                    <CaretDown size={14} weight="bold" className="cgrid__faq-caret" aria-hidden="true" />
-                  </button>
-                  <div className="cgrid__faq-a" id={`cfaq-${i}`} hidden={!isOpen}>
-                    <p>{f.a}</p>
-                  </div>
-                </li>
-              )
-            })}
-          </ul>
-
           <div className="cgrid__direct">
-            <a className="cgrid__mail" href={`mailto:${profile.email}`}>
-              <EnvelopeSimple size={16} weight="fill" aria-hidden="true" />
-              <span>{profile.email}</span>
-            </a>
             <ul className="cgrid__socials" role="list">
               {profile.socials.map((s) => (
                 <li key={s.label}>
@@ -132,8 +102,8 @@ export default function ContactGrid() {
               </h2>
               <p className="cgrid__done-body">
                 {status.via === 'webhook'
-                  ? 'It is in my inbox and on my phone. You will hear back within one business day.'
-                  : 'The message is laid out and addressed. Press send there and you will hear back within one business day.'}
+                  ? 'Your message is on its way to my inbox. I will reply by email.'
+                  : 'The message is laid out and addressed. Press send there and I will reply by email.'}
               </p>
               <button type="button" className="cgrid__again" onClick={() => setStatus({ kind: 'idle' })}>
                 Write another
@@ -197,7 +167,7 @@ export default function ContactGrid() {
                     {status.note}
                   </span>
                 ) : (
-                  <span className="cgrid__hint">Short reassurance line, e.g. your reply time.</span>
+                  <span className="cgrid__hint">I will reply to you by email.</span>
                 )}
               </div>
             </form>
