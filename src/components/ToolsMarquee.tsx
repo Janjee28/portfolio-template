@@ -15,7 +15,7 @@ import { useMemo } from 'react'
  * - Icons come in three flavors:
  *     1. Single-color simple-icons SVGs (.svg) are rendered as CSS masks tinted
  *        via a per-item `--brand-color` custom property.
- *     2. Multi-color brand marks (PNG or multi-color SVG) are rendered as
+ *     2. Multi-color brand marks (PNG, JPG or multi-color SVG) are rendered as
  *        raw `<img>` tags.
  *     3. No iconPath: a letter badge (temporary, until a logo is added).
  *   The renderer picks the mode by whether a `color` is set: color -> mask,
@@ -34,16 +34,31 @@ type Tool = {
 }
 
 export const tools: Tool[] = [
-  { name: 'GoHighLevel',      iconPath: '/icons/gohighlevel.png' },
-  { name: 'Make' },
-  { name: 'Meta' },
+  { name: 'GoHighLevel',   iconPath: '/icons/gohighlevel.png' },
+  { name: 'Make',          iconPath: '/icons/make.svg',        color: '#6D00CC' },
+  { name: 'Canva',         iconPath: '/icons/canva.svg',       color: '#00C4CC' },
+  { name: 'CapCut',        iconPath: '/icons/capcut.svg',      color: '#000000' },
+  { name: 'Hootsuite',     iconPath: '/icons/hootsuit.svg',    color: '#000000' },
   { name: 'Buffer' },
-  { name: 'Canva' },
-  { name: 'CapCut' },
+  { name: 'Zoho',          iconPath: '/icons/zohoo.svg',       color: '#E42527' },
+  { name: 'Asana',         iconPath: '/icons/asana.svg',       color: '#F06A6A' },
+  { name: 'Notion',        iconPath: '/icons/notion.svg',      color: '#000000' },
+  { name: 'Slack',         iconPath: '/icons/slack.svg',       color: '#611F69' },
+  { name: 'Zoom',          iconPath: '/icons/zoom.svg',        color: '#0B5CFF' },
+  { name: 'Loom',          iconPath: '/icons/loom.svg',        color: '#625DF5' },
+  { name: 'Gmail',         iconPath: '/icons/gmail.svg',       color: '#EA4335' },
+  { name: 'Google Drive',  iconPath: '/icons/googledrive.svg', color: '#4285F4' },
+  { name: 'NotebookLM',    iconPath: '/icons/notebooklm.svg',  color: '#1A73E8' },
   { name: 'ChatGPT' },
-  { name: 'Veo 3' },
-  { name: 'Google Workspace', iconPath: '/icons/googleworkspace.svg' },
-  { name: 'Notion' },
+  { name: 'Claude',        iconPath: '/icons/claude.svg',      color: '#D97757' },
+  { name: 'Veo 3',         iconPath: '/icons/veo3.jpg' },
+  { name: 'Runway',        iconPath: '/icons/runwayai.jpg' },
+  { name: 'Instagram',     iconPath: '/icons/instagram.svg',   color: '#E4405F' },
+  { name: 'Facebook',      iconPath: '/icons/facebook.svg',    color: '#0866FF' },
+  { name: 'Meta',          iconPath: '/icons/meta.svg',        color: '#0467DF' },
+  { name: 'Kahoot',        iconPath: '/icons/kahoot.svg',      color: '#46178F' },
+  { name: 'GitHub',        iconPath: '/icons/github.svg',      color: '#181717' },
+  { name: 'Vercel',        iconPath: '/icons/vercel.svg',      color: '#000000' },
 ]
 
 export default function ToolsMarquee() {
