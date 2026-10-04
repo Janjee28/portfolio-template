@@ -4,15 +4,15 @@
    on the right. Sized to the panel.
    ============================================ */
 
-.agrid__glass { min-height: 0; }
+.agrid__glass {
+  min-height: 0;
+}
 
 @media (min-width: 1100px) {
   .agrid__glass {
     height: 100%;
     display: grid;
     grid-template-columns: minmax(0, 1.28fr) minmax(280px, 1fr);
-    /* Definite row, not the implicit auto one: the illustration is a big
-       raster and an auto row would let its intrinsic height set the sheet. */
     grid-template-rows: minmax(0, 1fr);
     gap: clamp(16px, 2vw, 40px);
     align-items: stretch;
@@ -20,10 +20,10 @@
 }
 
 /* ---------- Left: the copy ---------- */
+
 .agrid__copy {
   display: flex;
   flex-direction: column;
-  /* "safe" keeps the top reachable if the copy is ever taller than the sheet. */
   justify-content: safe center;
   gap: clamp(10px, 1.5vh, 20px);
   min-height: 0;
@@ -33,7 +33,6 @@
   scrollbar-width: thin;
 }
 
-/* The statement. The first half is bold, the second half softer. */
 .agrid__lead {
   margin: 0;
   max-width: 40ch;
@@ -44,7 +43,11 @@
   color: var(--navy);
   flex: 0 0 auto;
 }
-.agrid__lead span { color: var(--muted); font-weight: 600; }
+
+.agrid__lead span {
+  color: var(--muted);
+  font-weight: 600;
+}
 
 .agrid__note {
   margin: 0;
@@ -54,11 +57,14 @@
   color: var(--muted);
   flex: 0 0 auto;
 }
-.agrid__note strong { color: var(--navy); font-weight: 700; }
 
-/* ---------- The capability ladder ----------
-   Four rows, each led by the marks of the tools that work is built with, then
-   the title and a line of skills. Hairlines between rows, no card per row. */
+.agrid__note strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* ---------- The capability ladder ---------- */
+
 .agrid__caps {
   display: flex;
   flex-direction: column;
@@ -67,10 +73,8 @@
   list-style: none;
   flex: 0 0 auto;
 }
+
 .agrid__cap {
-  /* One tile size drives the stack and the column reserved for it. The
-     column is sized for the widest stack (five marks) so every label starts
-     on the same x whether its row carries three logos or five. */
   --tile: clamp(28px, 2.2vw, 36px);
   --overlap: 5px;
   display: grid;
@@ -80,12 +84,17 @@
   padding: clamp(6px, 1vh, 12px) 2px;
   border-top: 1px solid var(--line);
 }
-.agrid__cap:last-child { border-bottom: 1px solid var(--line); }
 
-/* The marks overlap like a stack of cards. The overlap is a static margin -
-   only the lift is animated, and only on transform, so the row never reflows
-   while it plays. */
-.agrid__cap-marks { display: inline-flex; align-items: center; padding-left: var(--overlap); }
+.agrid__cap:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.agrid__cap-marks {
+  display: inline-flex;
+  align-items: center;
+  padding-left: var(--overlap);
+}
+
 .agrid__mark {
   display: grid;
   place-items: center;
@@ -101,19 +110,40 @@
   overflow: hidden;
   transition: transform 260ms var(--ease-spring);
 }
+
 .agrid__mark img {
   width: 58%;
   height: 58%;
   object-fit: contain;
 }
-.agrid__cap:hover .agrid__mark { transform: translateY(-3px); }
-.agrid__cap:hover .agrid__mark:nth-child(2) { transition-delay: 40ms; }
-.agrid__cap:hover .agrid__mark:nth-child(3) { transition-delay: 80ms; }
-.agrid__cap:hover .agrid__mark:nth-child(4) { transition-delay: 120ms; }
-.agrid__cap:hover .agrid__mark:nth-child(5) { transition-delay: 160ms; }
 
-/* Title with a line of skills under it. */
-.agrid__cap-copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.agrid__cap:hover .agrid__mark {
+  transform: translateY(-3px);
+}
+
+.agrid__cap:hover .agrid__mark:nth-child(2) {
+  transition-delay: 40ms;
+}
+
+.agrid__cap:hover .agrid__mark:nth-child(3) {
+  transition-delay: 80ms;
+}
+
+.agrid__cap:hover .agrid__mark:nth-child(4) {
+  transition-delay: 120ms;
+}
+
+.agrid__cap:hover .agrid__mark:nth-child(5) {
+  transition-delay: 160ms;
+}
+
+.agrid__cap-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
 .agrid__cap-title {
   font-size: clamp(13px, min(1vw, 1.85vh), 17px);
   font-weight: 700;
@@ -121,12 +151,14 @@
   line-height: 1.25;
   color: var(--navy);
 }
+
 .agrid__cap-skills {
   font-size: clamp(10.5px, min(0.76vw, 1.45vh), 12.5px);
   font-weight: 500;
   line-height: 1.4;
   color: var(--muted);
 }
+
 .agrid__cap-index {
   font-size: clamp(10.5px, 0.68vw, 12px);
   font-weight: 700;
@@ -134,11 +166,13 @@
   color: var(--line-strong);
   transition: color 220ms var(--ease-out);
 }
-.agrid__cap:hover .agrid__cap-index { color: var(--orange); }
 
-/* ---------- The info bar ----------
-   One plate with two stacked cells that share an anatomy - a mark, a title,
-   and a second line - divided by a hairline. */
+.agrid__cap:hover .agrid__cap-index {
+  color: var(--orange);
+}
+
+/* ---------- The info bar ---------- */
+
 .agrid__bar {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -152,6 +186,7 @@
   overflow: hidden;
   flex: 0 0 auto;
 }
+
 .agrid__cell {
   display: flex;
   align-items: center;
@@ -161,7 +196,11 @@
   color: inherit;
   text-decoration: none;
 }
-.agrid__cell + .agrid__cell { box-shadow: inset 0 1px 0 var(--line); }
+
+.agrid__cell + .agrid__cell {
+  box-shadow: inset 0 1px 0 var(--line);
+}
+
 .agrid__cell-mark {
   display: grid;
   place-items: center;
@@ -173,7 +212,16 @@
   background: rgba(24, 210, 194, 0.10);
   box-shadow: inset 0 0 0 1px rgba(24, 210, 194, 0.28);
 }
-.agrid__cell-copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+
+.agrid__cell-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  position: relative;
+  z-index: 5;
+}
+
 .agrid__cell-title {
   display: block;
   font-size: clamp(12px, 0.8vw, 14.5px);
@@ -182,6 +230,7 @@
   line-height: 1.2;
   color: var(--navy);
 }
+
 .agrid__cell-meta {
   font-size: clamp(10px, 0.62vw, 11.5px);
   font-weight: 600;
@@ -190,9 +239,22 @@
   color: var(--muted);
 }
 
-/* The three certifications as small chips. */
-.agrid__chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 3px; }
+/* ---------- Certifications ---------- */
+
+.agrid__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 3px;
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+
 .agrid__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
   padding: 2px 9px;
   border-radius: var(--radius-pill);
   background: var(--tint);
@@ -202,19 +264,54 @@
   line-height: 1.5;
   color: var(--navy);
   white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
 }
 
-/* Between the rail breakpoint and a wide desktop the bar has less room, so
-   the cells tighten. */
+.agrid__chip:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+  background: var(--paper);
+  box-shadow: inset 0 0 0 1px var(--navy);
+}
+
+.agrid__chip:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+.agrid__chip span {
+  font-size: 10px;
+  line-height: 1;
+}
+
+/* Between the rail breakpoint and a wide desktop the bar has less room,
+   so the cells tighten. */
+
 @media (min-width: 1100px) and (max-width: 1640px) {
-  .agrid__cell { gap: 9px; padding-inline: clamp(10px, 0.8vw, 14px); }
-  .agrid__cell-title { font-size: clamp(11.5px, 0.78vw, 13.5px); }
-  .agrid__cell-meta { font-size: 10px; }
+  .agrid__cell {
+    gap: 9px;
+    padding-inline: clamp(10px, 0.8vw, 14px);
+  }
+
+  .agrid__cell-title {
+    font-size: clamp(11.5px, 0.78vw, 13.5px);
+  }
+
+  .agrid__cell-meta {
+    font-size: 10px;
+  }
 }
 
-/* Dark theme: the mark tiles stay a light plate on purpose. Brand marks are
-   drawn for light backgrounds and several of these are monochrome black, so
-   inverting the tile would erase them. */
+/* Dark theme */
+
 [data-theme='dark'] .agrid__mark {
   background: #F4F4ED;
   box-shadow:
@@ -222,9 +319,8 @@
     0 2px 6px -3px rgba(0, 0, 0, 0.6);
 }
 
-/* ---------- Right: the portrait ----------
-   Bottom-aligned so the picture sits on the floor of the sheet, and pulled
-   into the sheet's corner by the glass padding. */
+/* ---------- Right: the portrait ---------- */
+
 .agrid__portrait {
   position: relative;
   display: flex;
@@ -234,6 +330,7 @@
   min-width: 0;
   margin: 0 calc(-1 * clamp(14px, 1.4vw, 24px)) calc(-1 * clamp(14px, 2vh, 24px)) 0;
 }
+
 .agrid__portrait img {
   display: block;
   width: 100%;
@@ -244,29 +341,65 @@
 }
 
 /* ---------- Below the shell ---------- */
+
 @media (max-width: 1099px) {
-  .agrid__glass { display: flex; flex-direction: column; gap: 20px; }
-  .agrid__copy { padding-left: 0; overflow-y: visible; }
-  .agrid__lead { max-width: none; }
-  /* The corner pull is a two-column move; stacked, it just runs the picture
-     off the right edge of the sheet. */
-  .agrid__portrait { order: -1; height: min(38vh, 300px); margin: 0; justify-content: center; }
-  .agrid__portrait img { object-position: bottom center; }
+  .agrid__glass {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .agrid__copy {
+    padding-left: 0;
+    overflow-y: visible;
+  }
+
+  .agrid__lead {
+    max-width: none;
+  }
+
+  .agrid__portrait {
+    order: -1;
+    height: min(38vh, 300px);
+    margin: 0;
+    justify-content: center;
+  }
+
+  .agrid__portrait img {
+    object-position: bottom center;
+  }
 }
+
 @media (max-width: 560px) {
-  /* The index has no room to earn its column at this width. */
-  .agrid__cap { grid-template-columns: calc(5 * var(--tile) - 4 * var(--overlap) + var(--overlap)) minmax(0, 1fr); }
-  .agrid__cap-index { display: none; }
+  .agrid__cap {
+    grid-template-columns: calc(5 * var(--tile) - 4 * var(--overlap) + var(--overlap)) minmax(0, 1fr);
+  }
+
+  .agrid__cap-index {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .agrid__mark,
-  .agrid__cap:hover .agrid__mark { transform: none; transition: none; }
+  .agrid__cap:hover .agrid__mark {
+    transform: none;
+    transition: none;
+  }
 }
 
 /* Phone type floor. */
+
 @media (max-width: 639px) {
-  .agrid__cell-meta { font-size: 11.5px; }
-  .agrid__cap-skills { font-size: 11.5px; }
-  .agrid__chip { font-size: 11.5px; }
+  .agrid__cell-meta {
+    font-size: 11.5px;
+  }
+
+  .agrid__cap-skills {
+    font-size: 11.5px;
+  }
+
+  .agrid__chip {
+    font-size: 11.5px;
+  }
 }
