@@ -80,9 +80,11 @@ export default function AboutGrid() {
     <section className="pgrid agrid" aria-labelledby="about-title">
       <header className="pgrid__head">
         <span className="pgrid__eyebrow">About</span>
+
         <h1 className="pgrid__title" id="about-title">
           {`Hi, I’m ${profile.firstName}.`}
         </h1>
+
         <p className="pgrid__lede">
           I help businesses turn ideas into content, leads into organized systems, and
           repetitive work into smarter workflows.
@@ -119,10 +121,12 @@ export default function AboutGrid() {
                     </span>
                   ))}
                 </span>
+
                 <span className="agrid__cap-copy">
                   <span className="agrid__cap-title">{c.title}</span>
                   <span className="agrid__cap-skills">{c.skills}</span>
                 </span>
+
                 <span className="agrid__cap-index" aria-hidden="true">
                   {c.index}
                 </span>
@@ -130,27 +134,31 @@ export default function AboutGrid() {
             ))}
           </ul>
 
-          {/* One plate, two cells sharing a mark / title / meta anatomy. */}
           <div className="agrid__bar">
             <span className="agrid__cell">
               <span className="agrid__cell-mark">
                 <SealCheck size={16} weight="fill" aria-hidden="true" />
               </span>
+
               <span className="agrid__cell-copy">
-                <span className="agrid__cell-title">Certifications &amp; Training</span>
-                <span className="agrid__chips">
-  {CERTIFICATIONS.map((c) => (
-    <a
-      key={c.name}
-      href={c.url}
-      target="_blank"
-      rel="noreferrer"
-      className="agrid__chip"
-    >
-      {c.name} ↗
-    </a>
-  ))}
-</span>
+                <span className="agrid__cell-title">
+                  Certifications &amp; Training
+                </span>
+
+                <div className="agrid__chips">
+                  {CERTIFICATIONS.map((c) => (
+                    <a
+                      key={c.name}
+                      href={c.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="agrid__chip"
+                    >
+                      {c.name}
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  ))}
+                </div>
               </span>
             </span>
 
@@ -158,6 +166,7 @@ export default function AboutGrid() {
               <span className="agrid__cell-mark">
                 <MapPin size={16} weight="fill" aria-hidden="true" />
               </span>
+
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">GMT+8 • Philippines</span>
                 <span className="agrid__cell-meta">Working with</span>
