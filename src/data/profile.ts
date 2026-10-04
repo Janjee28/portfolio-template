@@ -62,9 +62,9 @@ export const profile: Profile = {
   ],
   // The intro types this line, then flies it into the Home headline.
   // Keep it short: two halves, 5-8 words total.
-  displayName: { line1: 'Content, Funnels & Systems. Built to Grow.', line2: 'I help businesses turn ideas into content, leads into systems, and manual tasks into automation.' },
+  displayName: { line1: 'Content, Funnels & Systems. Built to Grow.', line2: 'Built to Grow.' },
   hero: {
-    body: 'I help businesses grow with social media, AI video and GoHighLevel automation.',
+    body: 'I help businesses turn ideas into content, leads into systems, and manual tasks into automation.',
     portraitSrc: '/avatar.png',
     portraitAlt: 'Portrait of Merlin Aguila',
   },
