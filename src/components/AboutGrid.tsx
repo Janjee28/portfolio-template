@@ -60,7 +60,20 @@ const CAPABILITIES: Capability[] = [
   },
 ]
 
-const CERTIFICATIONS = ['Klaviyo Practitioner', 'Amazon Ads Foundations', 'Google Ads']
+const CERTIFICATIONS = [
+  {
+    name: 'Klaviyo Practitioner',
+    url: 'https://credential.klaviyo.com/bb767744-87b9-46c3-98ad-08c2262082ef#acc.PFH7pb4i',
+  },
+  {
+    name: 'Amazon Ads Foundations',
+    url: 'https://advertising.amazon.com/academy/certificates/64b28f86-b26e-41e7-b4e7-af488b521427',
+  },
+  {
+    name: 'Google Ads Search Certification',
+    url: 'https://skillshop.credential.net/7bd20f18-6dbe-4c69-b71e-040a81460d60#acc.zjSXcvrH',
+  },
+]
 
 export default function AboutGrid() {
   return (
