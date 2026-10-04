@@ -139,12 +139,18 @@ export default function AboutGrid() {
               <span className="agrid__cell-copy">
                 <span className="agrid__cell-title">Certifications &amp; Training</span>
                 <span className="agrid__chips">
-                  {CERTIFICATIONS.map((c) => (
-                    <span key={c} className="agrid__chip">
-                      {c}
-                    </span>
-                  ))}
-                </span>
+  {CERTIFICATIONS.map((c) => (
+    <a
+      key={c.name}
+      href={c.url}
+      target="_blank"
+      rel="noreferrer"
+      className="agrid__chip"
+    >
+      {c.name} ↗
+    </a>
+  ))}
+</span>
               </span>
             </span>
 
