@@ -28,10 +28,13 @@ import { aiStack, type StackNode } from '@/data/ai-stack'
  * height and Home stays a single viewport.
  */
 
-const thumbSrc = (f: Funnel) =>
-  `/home/${f.dir ?? 'funnels'}-${f.file.replace('.html', '.jpeg')}`
-
-const PROJECT_SHOTS = [gymFunnel[0], bookingFunnel[0], websiteFunnel[0], gymFunnel[1]].filter(Boolean)
+const PROJECT_SHOTS = [
+  '/home/project-video.jpg',
+  '/home/project-lumea.jpg',
+  '/home/project-aurora.jpg',
+  '/home/project-bridgeline.jpg',
+  '/home/project-glow.jpg',
+]
 
 const OFFERS = [
   { Icon: FunnelSimple, title: 'Service One', note: 'PLACEHOLDER one-liner' },
