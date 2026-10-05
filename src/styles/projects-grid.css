@@ -304,7 +304,10 @@
 .ppanel--strip .wfs__caption { display: none; }
 .ppanel--strip .wfs { padding: 0; width: 100%; }
 .ppanel--strip [data-reveal] { opacity: 1 !important; transform: none !important; }
-.ppanel--strip .wfs__frame { pointer-events: none; width: clamp(520px, 46vw, 820px); }
+.ppanel--strip .wfs__frame {
+  pointer-events: auto;
+  width: clamp(280px, 30vw, 480px);
+}
 .ppanel--strip .wfs__strip:hover .wfs__track { animation-play-state: running; }
 .ppanel--strip .wfs__strip { mask-image: none; -webkit-mask-image: none; }
 
