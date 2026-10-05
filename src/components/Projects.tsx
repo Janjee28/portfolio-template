@@ -30,14 +30,10 @@ const EXTENSIONS: Extension[] = [
   },
 ]
 
-/* ── Extension card ─────────────────────────────────────────────
-   Vertical card: a faux browser window on top (chrome bar + equal-height
-   stage), then badge / title / description below. The stage is the same
-   height on both cards so portrait and landscape screenshots read as a
-   matched set; each image is centered with
-   object-fit: contain and never displayed past its native width. */
+/* ── Extension card ───────────────────────────────────────────── */
 function ExtensionCard({ ext }: { ext: Extension }) {
   const ExtIcon = ext.Icon
+
   return (
     <li className="ext-card">
       <figure className="ext-card__window">
@@ -47,11 +43,13 @@ function ExtensionCard({ ext }: { ext: Extension }) {
             <span className="ext-card__dot" />
             <span className="ext-card__dot" />
           </span>
+
           <span className="ext-card__urlbar">
             <ExtIcon size={12} weight="bold" />
             chrome-extension
           </span>
         </div>
+
         <div className="ext-card__stage">
           <img
             className="ext-card__img"
@@ -62,12 +60,15 @@ function ExtensionCard({ ext }: { ext: Extension }) {
           />
         </div>
       </figure>
+
       <div className="ext-card__body">
         <span className="ext-card__badge">
           <ExtIcon size={14} weight="bold" aria-hidden="true" />
           Chrome Extension
         </span>
+
         <h4 className="ext-card__name">{ext.name}</h4>
+
         <p className="ext-card__desc">{ext.desc}</p>
       </div>
     </li>
@@ -93,22 +94,36 @@ function AppCard({ app }: { app: AppProject }) {
         ) : (
           <div className="app-card__img-placeholder" aria-hidden="true">
             <span className="app-card__img-initials">
-              {app.name.split(' ').map((w) => w[0]).join('').slice(0, 2)}
+              {app.name
+                .split(' ')
+                .map((w) => w[0])
+                .join('')
+                .slice(0, 2)}
             </span>
           </div>
         )}
+
         <span className="app-card__badge">{app.badge}</span>
         <span className="app-card__img-fade" aria-hidden="true" />
       </div>
+
       <div className="app-card__body">
         <h3 className="app-card__name">{app.name}</h3>
+
         <p className="app-card__tagline">{app.tagline}</p>
+
         <p className="app-card__desc">{app.description}</p>
+
         <ul className="app-card__stats" role="list">
           {app.stats.map((stat) => (
             <li key={stat.label} className="app-card__stat">
-              <span className="app-card__stat-value">{stat.value}</span>
-              <span className="app-card__stat-label">{stat.label}</span>
+              <span className="app-card__stat-value">
+                {stat.value}
+              </span>
+
+              <span className="app-card__stat-label">
+                {stat.label}
+              </span>
             </li>
           ))}
         </ul>
@@ -117,10 +132,7 @@ function AppCard({ app }: { app: AppProject }) {
   )
 }
 
-/* ── Sections ───────────────────────────────────────────────
-   Two exports so the Projects dialog can open each body of work on its own;
-   the default still composes them (with Flagship) for anything that wants
-   the whole section. */
+/* ── Projects section ───────────────────────────────────────── */
 export function AIStackSection() {
   return (
     <section
@@ -130,63 +142,66 @@ export function AIStackSection() {
       data-reveal
     >
       <header className="projects__header">
-  <span className="projects__eyebrow">PROJECTS</span>
+        <span className="projects__eyebrow">PROJECTS</span>
 
-  <h2 className="projects__headline" id="projects-heading">
-    Real projects across funnels, websites, automation, CRM, and digital content.
-  </h2>
+        <h2
+          className="projects__headline"
+          id="projects-heading"
+        >
+          Real projects across funnels, websites, automation, CRM, and digital content.
+        </h2>
 
-  <p className="projects__subhead">
-    Explore selected work spanning funnel and website builds, workflow and CRM systems,
-    Klaviyo automation, video, and creative content.
-  </p>
-</header>
-      <div className="projects__panel" id="projects-panel">
-  <article className="project-card">
-    <div className="project-card__meta">
-      <span className="project-card__index">01</span>
-      <span className="project-card__category">WORKFLOW AUTOMATION</span>
-    </div>
+        <p className="projects__subhead">
+          Explore selected work spanning funnel and website builds,
+          workflow and CRM systems, Klaviyo automation, video, and
+          creative content.
+        </p>
+      </header>
 
-    <div className="project-card__content">
-      <h3>Growth Gap Assessment System</h3>
-
-      <p>
-        A connected funnel, CRM, pipeline, and workflow automation system
-        designed to manage assessment submissions, audit progress, and
-        appointment follow-ups.
-      </p>
-
-      <div className="project-card__tags">
-        <span>Funnel</span>
-        <span>Workflow Automation</span>
-        <span>CRM</span>
-        <span>Pipeline</span>
+      <div
+        className="projects__panel"
+        id="projects-panel"
+      >
+        <AIStack />
       </div>
-    </div>
-  </article>
-</div>
     </section>
   )
 }
 
+/* ── Apps section ───────────────────────────────────────────── */
 export function AppsSection() {
   return (
-    <section className="projects projects--apps" aria-label="Apps and extensions" data-reveal>
+    <section
+      className="projects projects--apps"
+      aria-label="Apps and extensions"
+      data-reveal
+    >
       <div className="projects__panel">
-        <span className="projects__ext-eyebrow">Your apps label</span>
+        <span className="projects__ext-eyebrow">
+          Your apps label
+        </span>
+
         <ul className="projects__apps" role="list">
           {mobileApps.map((app) => (
-            <AppCard key={app.name} app={app} />
+            <AppCard
+              key={app.name}
+              app={app}
+            />
           ))}
         </ul>
 
         {/* Browser extensions - a compact companion block in the same section */}
         <div className="projects__ext">
-          <span className="projects__ext-eyebrow">Your extensions label</span>
+          <span className="projects__ext-eyebrow">
+            Your extensions label
+          </span>
+
           <ul className="ext-grid" role="list">
             {EXTENSIONS.map((ext) => (
-              <ExtensionCard key={ext.name} ext={ext} />
+              <ExtensionCard
+                key={ext.name}
+                ext={ext}
+              />
             ))}
           </ul>
         </div>
@@ -195,6 +210,7 @@ export function AppsSection() {
   )
 }
 
+/* ── Main Projects page ─────────────────────────────────────── */
 export default function Projects() {
   return (
     <>
