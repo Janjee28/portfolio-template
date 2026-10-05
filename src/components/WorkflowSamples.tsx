@@ -22,10 +22,10 @@ import { X } from '@/components/slab'
 type Sample = { file: string; label: string }
 
 const SAMPLES: Sample[] = [
-  { file: 'project-1.jpg', label: 'Project Screenshot 1' },
-  { file: 'project-2.jpg', label: 'Project Screenshot 2' },
-  { file: 'project-3.jpg', label: 'Project Screenshot 3' },
-  { file: 'project-4.jpg', label: 'Project Screenshot 4' },
+  { file: 'automation-1.jpg', label: 'Klaviyo Email Automation' },
+  { file: 'automation-2.jpg', label: 'Growth Gap Assessment Form' },
+  { file: 'automation-3.jpg', label: 'Pipeline Stage Automation' },
+  { file: 'automation-4.jpg', label: 'Assessment Submission Workflow' },
 ]
 
 const srcOf = (s: Sample) => `/placeholders/${encodeURIComponent(s.file)}`
