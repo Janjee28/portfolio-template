@@ -298,10 +298,16 @@ export default function ProjectsGrid() {
   return (
     <section className="pgrid" aria-labelledby="projects-title">
       <header className="pgrid__head">
-        <span className="pgrid__eyebrow">Projects</span>
-        <h1 className="pgrid__title" id="projects-title">
-          Your projects headline goes right here.
-        </h1>
+        <span className="pgrid__eyebrow">PROJECTS</span>
+
+<h1 className="pgrid__title" id="projects-title">
+  Real projects across funnels, websites, automation, CRM, and digital content.
+</h1>
+
+<p className="pgrid__lede">
+  Explore selected work spanning funnel and website builds, workflow and CRM systems,
+  Klaviyo automation, video, and creative content.
+</p>
         <p className="pgrid__lede">PLACEHOLDER - tell me what to put here: one line on the work below. Open a card to see it full size.</p>
       </header>
 
