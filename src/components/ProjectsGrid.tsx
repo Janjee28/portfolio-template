@@ -308,6 +308,9 @@ export default function ProjectsGrid() {
   Explore selected work spanning funnel and website builds, workflow and CRM systems,
   Klaviyo automation, video, and creative content.
 </p>
+
+</header>
+
         
       {phone && (
         <div className="pfilter" role="group" aria-label="Filter projects">
