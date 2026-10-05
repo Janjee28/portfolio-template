@@ -308,9 +308,7 @@ export default function ProjectsGrid() {
   Explore selected work spanning funnel and website builds, workflow and CRM systems,
   Klaviyo automation, video, and creative content.
 </p>
-        <p className="pgrid__lede">PLACEHOLDER - tell me what to put here: one line on the work below. Open a card to see it full size.</p>
-      </header>
-
+        
       {phone && (
         <div className="pfilter" role="group" aria-label="Filter projects">
           {FILTERS.map((f) => (
