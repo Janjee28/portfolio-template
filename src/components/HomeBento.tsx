@@ -98,7 +98,7 @@ export default function HomeBento() {
           <div className="bento__reel-track">
             {[...PROJECT_SHOTS, ...PROJECT_SHOTS].map((f, i) => (
               <span key={i} className="bento__shot">
-                <img src={f} alt="" loading="lazy" decoding="async" /> />
+                <img src={f} alt="" loading="lazy" decoding="async" />
               </span>
             ))}
           </div>
