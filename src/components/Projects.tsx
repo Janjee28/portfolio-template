@@ -142,8 +142,30 @@ export function AIStackSection() {
   </p>
 </header>
       <div className="projects__panel" id="projects-panel">
-        <AIStack />
+  <article className="project-card">
+    <div className="project-card__meta">
+      <span className="project-card__index">01</span>
+      <span className="project-card__category">WORKFLOW AUTOMATION</span>
+    </div>
+
+    <div className="project-card__content">
+      <h3>Growth Gap Assessment System</h3>
+
+      <p>
+        A connected funnel, CRM, pipeline, and workflow automation system
+        designed to manage assessment submissions, audit progress, and
+        appointment follow-ups.
+      </p>
+
+      <div className="project-card__tags">
+        <span>Funnel</span>
+        <span>Workflow Automation</span>
+        <span>CRM</span>
+        <span>Pipeline</span>
       </div>
+    </div>
+  </article>
+</div>
     </section>
   )
 }
