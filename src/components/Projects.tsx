@@ -130,15 +130,17 @@ export function AIStackSection() {
       data-reveal
     >
       <header className="projects__header">
-        <span className="projects__eyebrow">Placeholder category</span>
-        <h2 className="projects__headline" id="projects-heading">
-          Your systems headline.
-        </h2>
-        <p className="projects__subhead">
-          PLACEHOLDER - tell me what to put here: one line on the systems below.
-          Open a branch to see what sits under it.
-        </p>
-      </header>
+  <span className="projects__eyebrow">PROJECTS</span>
+
+  <h2 className="projects__headline" id="projects-heading">
+    Real projects across funnels, websites, automation, CRM, and digital content.
+  </h2>
+
+  <p className="projects__subhead">
+    Explore selected work spanning funnel and website builds, workflow and CRM systems,
+    Klaviyo automation, video, and creative content.
+  </p>
+</header>
       <div className="projects__panel" id="projects-panel">
         <AIStack />
       </div>
